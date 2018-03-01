@@ -68,7 +68,7 @@
         }else{
             var patt = new RegExp(value, "i");
             selector.each(function(index) {
-                if(type == "select" && (splValue = "All WBS")){
+                if(type == "select" && (splValue =="All WBS")){
                     if(!($(this).text().search(patt) >= 0)){
                         $(this).hide();
                     }
