@@ -47,23 +47,18 @@
         $trFirst.after($trNew);
     });
 
-    $("#search").on("keyup", function() {
-    var value = $(this).val();
-
-    $("table tr").each(function(index) {
-        if (index !== 0) {
-
-            $row = $(this);
-
-            var id = $row.find("td:first").text();
-
-            if (id.indexOf(value) !== 0) {
-                $row.hide();
+    $(".search").on("keyup", function() {
+        var value = $(this).val();
+        var patt = new RegExp(value, "i");
+        $('table').find('tr').each(function(index) {
+            if (index !== 0) {
+                if (!($(this).find('td').text().search(patt) >= 0)) {
+                    $(this).not('.myHead').hide();
+                }
+                if (($(this).find('td').text().search(patt) >= 0)) {
+                    $(this).show();
+                }
             }
-            else {
-                $row.show();
-            }
-        }
+        });
     });
-});
 }(jQuery));
