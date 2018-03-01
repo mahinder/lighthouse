@@ -1,0 +1,210 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Light House</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font -->
+  <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Lato:400,700,300' type='text/css'>
+  <!-- Font awesome icons-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Css library -->
+  <link rel="stylesheet" href="css/sierra.min.css">
+
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+
+<body>
+  <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+  <header class="header-fixed-top" role="navigation">
+    <div class="container">
+      <div class="header text-center">
+        <h1>LightHouse Electric Asset Order Tool</h1>
+      </div>
+    </div>
+  </header>
+
+  <div id="app">
+      <div class="container">
+        <div class="row aligner-center-vertical">
+          <div class="col-sm-12 text-center"><p class="text-big text-gray">Item Detail - 2 HP 1/2 Chuck</p></div>
+             <!--  <img src="img/drill.jpg" class="img-fluid" alt="Responsive image"> -->
+          
+          <div class="col-sm-6 col-xs-12">
+            <nav class="block-mobile text-center content-end">
+              <a href="#" v-for="menu in menuItems" class="button button-outlined block-mobile">{{menu.name}}</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="aligner-space-around">
+          <div>
+            <img src="img/drill.jpg" class="img-fluid" alt="Responsive image">
+          </div>
+          <div></div>
+          <div></div>
+          <div>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+                <label for="name" class="label">Expected Return Date</label>
+              </div>
+              <div class="col-xs-12 col-md-6">
+                <div class="input">
+                  <input id="datepicker" placeholder="Date" type="date">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+                <label class="label" for="name">Total Qty</label>
+              </div>
+              <div class="col-xs-12 col-md-6">
+                <div class="input">
+                  <input placeholder="Total Qty" type="number" name="quantity" min="0">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <!-- <div class="col-xs-12 col-md-6">
+                
+              </div> -->
+              <div class="col-xs-12 col-md-12">
+                <div class="checkbox">
+                   <input id="checkbox1" name="keywords" type="checkbox" value="">
+                   <label for="checkbox1">Accessories Only Line Item</label>
+                </div>
+              </div>
+            </div>  
+          </div>
+        </div>
+      </div>
+    <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-md-7"></div>
+            <div class="col-xs-12 col-md-5">
+              <div class="form-collapse">
+                <div class="input item item-main">
+                  <input id="search" placeholder="Search" type="text" >
+                </div>
+                <button class="item button button-primary">
+                  <i class="fa fa-search fa-lg">  </i>
+                </button>
+                <button class="item button button-outlined" onclick="$('.collapse').slideToggle(500);">Add Other Accessories</button>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-md-12 collapse" style="display: none;">
+                 <div class="row form-row">
+                    <div class="col-xs-12 col-md-3">
+                        <div class="input input-with-icon full-width">
+                            <input id="itemDetailName" placeholder="Other Accessory" type="text">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-7">
+                        <div class="input input-with-icon full-width">
+                            <input id="itemDetailDiscription" placeholder="Discription" type="text">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-2">
+                           <button class="button button-big block-mobile" style="margin-top:0 " id="itemDetailSubmit">Submit</button> 
+                    </div>
+
+                  </div>
+            </div>
+          </div>
+            <table class="table table-responsive table-break-medium light action-buttons">
+                <tbody id="itemDetailTable"><tr class="text-small">
+                    <th>Accessories</th>
+                    <th>Discription</th>
+                    <th>Qty</th>
+                    <th>Add/Remove</th>
+                </tr>
+                <tr>
+                    <td data-th="Accessories">Drill Bit Size X</td>
+                    <td data-th="Discription">Sample Description</td>
+                    <td data-th="Qty">1</td>
+                    <td data-th="Add/Remove">
+                      <span class="block-mobile text-center">
+                        <i class="fa fa-plus badges-list-item badge-primary" style="cursor: pointer" v-on:click="add"></i>
+                        <i class="fa fa-minus badges-list-item badge-primary"  style="cursor: pointer" v-on:click="remove"></i>
+                      </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-th="Accessories">Drill Bit Size Y</td>
+                    <td data-th="Discription">Sample Description</td>
+                    <td data-th="Qty">1</td>
+                    <td data-th="Add/Remove">
+                        <span class="block-mobile text-center">
+                          <i class="fa fa-plus badges-list-item badge-primary" style="cursor: pointer" v-on:click="add"></i>
+                          <i class="fa fa-minus badges-list-item badge-primary"  style="cursor: pointer" v-on:click="remove"></i>
+                        </span>
+                      </td>
+                </tr>
+                <tr>
+                    <td data-th="Accessories">Drill Bit Size Z</td>
+                    <td data-th="Discription">Sample Description</td>
+                    <td data-th="Qty">1</td>
+                    <td data-th="Add/Remove">
+                        <span class="block-mobile text-center">
+                          <i class="fa fa-plus badges-list-item badge-primary" style="cursor: pointer" v-on:click="add"></i>
+                          <i class="fa fa-minus badges-list-item badge-primary"  style="cursor: pointer" v-on:click="remove"></i>
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                    <td data-th="Accessories">Other</td>
+                    <td data-th="Discription">Input Description</td>
+                    <td data-th="Qty">1</td>
+                    <td data-th="Add/Remove">
+                        <span class="block-mobile text-center">
+                          <i class="fa fa-plus badges-list-item badge-primary" style="cursor: pointer" v-on:click="add"></i>
+                          <i class="fa fa-minus badges-list-item badge-primary"  style="cursor: pointer" v-on:click="remove"></i>
+                        </span>
+                      </td>
+                    </tr>
+            </tbody></table>
+      <hr>
+
+    </div>
+    <!-- /container -->
+
+  </div> <!-- #app -->
+
+
+  <footer id="footer">
+    <p>&copy; Company 2017</p>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+  </script>
+
+  <script src="js/vendor/bootstrap.min.js"></script>
+
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

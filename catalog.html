@@ -1,0 +1,97 @@
+    <div class="section">
+      <div class="container">
+        <div class="row aligner-center-vertical">
+          <div class="col-sm-6 col-xs-12">
+              <address>
+                  Jon Smith
+                  <br> Job #12345- PIT Stadium:
+                  <br> 123 Any Street, PA. USA
+                </address>
+          </div>
+          <div class="col-sm-6 col-xs-12">
+            <nav class="block-mobile text-center content-end">
+              <a href="#" v-for="menu in menuItems" class="button button-outlined block-mobile" >{{menu.name}}</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+        <div class="row form-row">
+            <div class="col-xs-12 col-md-6">
+                <div class="form-collapse aligner-space-around">
+                    <div class="select item">
+                        <select name="country-code" id="country-code">
+                            <option>All WBS</option>
+                            <option>WBS 1</option>
+                            <option>WBS 2</option>
+                            <option>WBS 3</option>
+                            <option>WBS 4</option>
+                        </select>
+                        <i class="fa fa-angle-down fa-2"></i>
+                    </div>
+                    <div class="select item">
+                        <select name="country-code" id="country-code">
+                            <option>All Tools</option>
+                            <option>Drills</option>
+                            <option>Saw</option>
+                            <option>Sholve</option>
+                        </select>
+                        <i class="fa fa-angle-down fa-2"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="input input-with-icon full-width">
+                    <input id="search" placeholder="Search" type="text">
+                    <button class="input-icon fa fa-search fa-lg"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <!-- <h2 class="text-big">WBS 1</h2> -->
+            <table class="table table-responsive table-break-medium light action-buttons">
+                <span class="align-left"><strong>WBS1</strong></span>
+                <tbody><tr class="text-small">
+                    <th>Item</th>
+                    <th>Discription</th>
+                    <th>Qty Available</th>
+                    <th>Status</th>
+                    <th>Qty</th>
+                    <th>Add/Remove</th>
+                </tr>
+                <tr>
+                    <td data-th="Item">Drills</td>
+                    <td data-th="Discription">26</td>
+                    <td data-th="Qty Available" class="max">100</td>
+                    <td data-th="Status">Available</td>
+                    <td data-th="Qty" class="calculation">0</td>
+                    <td data-th="Add/Remove">
+                      <span class="block-mobile text-center">
+                         <i class="fa fa-plus badges-list-item badge-primary" style="cursor: pointer" v-on:click="add"></i>
+                          <i class="fa fa-minus badges-list-item badge-primary"  style="cursor: pointer" v-on:click="remove"></i>
+                      </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-th="Item">saw</td>
+                    <td data-th="Discription">27</td>
+                    <td data-th="Qty Available">75</td>
+                    <td data-th="Status">Available</td>
+                    <td data-th="Qty">0</td>
+                    <td data-th="Add/Remove">
+                        <span class="block-mobile text-center">
+                          <i class="fa fa-plus badges-list-item badge-primary"></i>
+                          <i class="fa fa-minus badges-list-item badge-primary"></i>
+                        </span>
+                      </td>
+                </tr>
+                
+            </tbody></table>
+        </div>
+      <hr>
+
+    </div>
+    <!-- /container -->
